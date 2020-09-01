@@ -88,12 +88,17 @@
                                     <input type="button" class="btn btn-outline-primary col-3 slideanim" id="btn_get" style="font-family: Dana;" value="بزن بریم">
                                 </div>
                                 <small class="form-text text-muted display-8 slideanim" style="text-align: right;font-family: Dana;">لینک یوتیوب را در باکس بالا وارد کنید و روی "بزن بریم" کلیک کنید</small>
-                            </div>
 
+                                <div class="form-group col-12" style="padding-right: 0px; padding-left: 0px;">
+                                    <a id="download_link" class="col-11 slideanim" style="padding-right: 0px; padding-left: 0px; visibility: hidden;" href="" download>
+                                        <input type="button" class="btn btn-outline-primary  col-11" style="font-family: Dana;padding-right: 0px; padding-left: 0px;" value="دانلود">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="mbr-figure col-12 col-md-7 illustration-element-01">
-                        <div class="mbr-embedded-video ig">
+                        <div class="mbr-embedded-video ig" id="vidobox">
                             <video width="100%" height="100%" allowfullscreen controls>
                                 <source src="" type="video/mp4"/>
                                 <em>Sorry, your browser doesn't support HTML5 video.</em>
@@ -279,6 +284,8 @@
             $("#btn_get").click(function() {
 
                 var url = $("#Inputurlyoutube").val();
+                var vidobox = document.getElementById("vidobox");
+                var download_link = document.getElementById("download_link");;
 
                 var oThis = $(this);
                 oThis.attr('disabled', true);
@@ -291,11 +298,14 @@
 
                     oThis.attr('disabled', false);
 
+                    download_link.style.visibility = "hidden";
+
                     var links = data['links'];
                     var error = data['error'];
 
                     if (error) {
                         alert('Error: ' + error);
+                        download_link.style.visibility = "hidden";
                         return;
                     }
 
@@ -306,6 +316,7 @@
 
                     if (typeof first === 'undefined') {
                         alert('No video found!');
+                        download_link.style.visibility = "hidden";
                         return;
                     }
 
@@ -313,7 +324,8 @@
 
                     var video = $("video");
                     video.attr('src', stream_url);
-                    video.attr('style', "transform: perspective(1000px) rotateY(0deg) rotateX(0deg) rotateZ(0deg) translateX(0%) translateY(0%); will-change: transform; transition: all 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);");
+                    download_link.style.visibility = "visible";
+                    vidobox.attr('style', "transform: perspective(1000px) rotateY(0deg) rotateX(0deg) rotateZ(0deg) translateX(0%) translateY(0%); will-change: transform; transition: all 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);");
                     video[0].load();
                 });
 
