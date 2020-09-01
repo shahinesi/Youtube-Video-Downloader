@@ -1,0 +1,172 @@
+body,
+html {
+    height: 100%;
+}
+
+.scroll-downs {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 34px;
+    height: 55px;
+}
+
+.mousey {
+    width: 3px;
+    padding: 10px 15px;
+    height: 35px;
+    border: 2px solid #000000;
+    border-radius: 25px;
+    opacity: 0.75;
+    box-sizing: content-box;
+}
+
+.scroller {
+    width: 3px;
+    height: 10px;
+    border-radius: 25%;
+    background-color: #000000;
+    animation-name: scroll;
+    animation-duration: 2.2s;
+    animation-timing-function: cubic-bezier(.15, .41, .69, .94);
+    animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+}
+
+.ig {
+    z-index: 1;
+    border-radius: 8px;
+    box-shadow: 0 30px 60px rgba(29, 43, 76, 0.24);
+    transform: perspective(1000px) rotateY(13deg) rotateX(-5deg) rotateZ(-7deg) scaleY(0.9) scaleX(0.95) translateX(3%) translateY(-3%);
+    will-change: transform;
+    transition: all 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.ig:hover {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) rotateZ(0deg) translateX(0%) translateY(0%);
+    will-change: transform;
+    transition: all 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+@font-face {
+    font-family: "Dana";
+    src: url("assets/font/dana-fanum-bold.woff2") format('woff2');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Dana";
+    src: url("assets/font/dana-fanum-regular.woff2") format('woff2');
+    font-weight: normal;
+}
+
+.slideanim {
+    visibility: hidden;
+    visibility: visible\9;
+    /*For old IE browsers IE6-8 */
+}
+
+.slideanim.slide {
+    visibility: visible;
+    animation: slide 1s;
+}
+
+.slideanim::after {
+    /* useful when its child elements are float:left; */
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    font-family: Verdana, sans-serif;
+}
+
+p {
+    padding: 20px 0;
+}
+
+#backtop {
+    position: fixed;
+    left: auto;
+    right: 20px;
+    top: auto;
+    bottom: 20px;
+    outline: none;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    background-color: rgba(49, 79, 96, 0.84);
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    z-index: 999999;
+    opacity: 1;
+    display: none;
+}
+
+#backtop:hover {
+    background-color: #27CFC3;
+}
+
+#backtop.mcOut {
+    opacity: 0;
+}
+
+@media (max-width: 640px) {
+    .hNQQoV::after {
+        left: calc(50% + 60px);
+        background-position: right top
+    }
+}
+
+@media (max-width: 640px) {
+    .hNQQoV {
+        z-index: 0;
+        background-color: transparent;
+        position: absolute;
+        top: 6rem;
+        transform: perspective(1000px) rotateY(0) rotateX(0) rotateZ(11deg) scaleY(1) scaleX(1) translateX(-10%) translateY(3%);
+    }
+}
+
+@media (min-width: 641px) {
+    .hNQQoV {
+        z-index: 0;
+        background-color: transparent;
+        position: absolute;
+        top: 6rem;
+        transform: perspective(1000px) rotateY(21deg) rotateX(-5deg) rotateZ(0deg) scaleY(0.56) scaleX(0.56) translateX(-50%) translateY(-26%);
+    }
+}
