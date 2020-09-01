@@ -93,7 +93,12 @@
                         </div>
                     </div>
                     <div class="mbr-figure col-12 col-md-7 illustration-element-01">
-                        <iframe class="mbr-embedded-video ig" src="https://www.youtube.com/embed/HujDEPAWboE?rel=0&amp;amp;showinfo=0&amp;autoplay=1&amp;loop=1&amp;playlist=HujDEPAWboE" frameborder="0" allowfullscreen controls></iframe>
+                        <div class="mbr-embedded-video ig">
+                            <video width="100%" height="100%" allowfullscreen controls>
+                                <source src="" type="video/mp4"/>
+                                <em>Sorry, your browser doesn't support HTML5 video.</em>
+                            </video>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -306,10 +311,10 @@
 
                     var stream_url = 'stream.php?url=' + encodeURIComponent(first['url']);
 
-                    var iframe = $("iframe");
-                    iframe.attr('src', stream_url);
-                    iframe.attr('style', "transform: perspective(1000px) rotateY(0deg) rotateX(0deg) rotateZ(0deg) translateX(0%) translateY(0%); will-change: transform; transition: all 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);");
-                    iframe[0].load();
+                    var video = $("video");
+                    video.attr('src', stream_url);
+                    video.attr('style', "transform: perspective(1000px) rotateY(0deg) rotateX(0deg) rotateZ(0deg) translateX(0%) translateY(0%); will-change: transform; transition: all 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);");
+                    video[0].load();
                 });
 
             });
