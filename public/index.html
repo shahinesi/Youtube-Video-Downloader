@@ -90,7 +90,7 @@
                                 <small class="form-text text-muted display-8 slideanim" style="text-align: right;font-family: Dana;">لینک یوتیوب را در باکس بالا وارد کنید و روی "بزن بریم" کلیک کنید</small>
 
                                 <div class="form-group col-12" style="padding-right: 0px; padding-left: 0px;">
-                                    <a id="download_link" class="col-11 slideanim" style="padding-right: 0px; padding-left: 0px; visibility: hidden;" href="" download>
+                                    <a id="download_link" href="" class="col-11 slideanim" style="padding-right: 0px; padding-left: 0px; visibility: hidden;" href="" download>
                                         <input type="button" class="btn btn-outline-primary  col-11" style="font-family: Dana;padding-right: 0px; padding-left: 0px;" value="دانلود">
                                     </a>
                                 </div>
@@ -325,7 +325,8 @@
                     var video = $("video");
                     video.attr('src', stream_url);
                     download_link.style.visibility = "visible";
-                    vidobox.attr('style', "transform: perspective(1000px) rotateY(0deg) rotateX(0deg) rotateZ(0deg) translateX(0%) translateY(0%); will-change: transform; transition: all 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);");
+                    download_link.setAttribute('href', stream_url);
+                    vidobox.setAttribute('style', "transform: perspective(1000px) rotateY(0deg) rotateX(0deg) rotateZ(0deg) translateX(0%) translateY(0%); will-change: transform; transition: all 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);");
                     video[0].load();
                 });
 
